@@ -92,7 +92,7 @@ const techStack = [
           Contact
         </h2>
         <p class="text-center text-gray-600 dark:text-gray-400 mb-6">
-          Email: contact@ayadmo-analytics.com · Phone: +1 (555) 000-0000
+          Email: ayadmo@netpoc.com.ng · Phone: +234 806 857 1524
         </p>
         <button
           type="button"
