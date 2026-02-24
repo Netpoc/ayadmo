@@ -10,6 +10,19 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 useEventListener(document, 'keydown', onKeydown)
+
+const { loading, error, success, submitEnquiry } = useEnquiry()
+
+async function handleSubmit(payload: { name: string; email: string; phone: string; message: string }) {
+  try {
+    await submitEnquiry(payload)
+    setTimeout(() => {
+      onClose()
+    }, 1500)
+  } catch {
+    // error already set in composable
+  }
+}
 </script>
 
 <template>
@@ -62,7 +75,19 @@ useEventListener(document, 'keydown', onKeydown)
                 </svg>
               </button>
             </div>
-            <ContactForm @submit="onClose" />
+            <p
+              v-if="error"
+              class="mb-3 rounded-md bg-red-50 text-red-700 text-sm px-3 py-2 dark:bg-red-900/30 dark:text-red-200"
+            >
+              {{ error }}
+            </p>
+            <p
+              v-if="success"
+              class="mb-3 rounded-md bg-green-50 text-green-700 text-sm px-3 py-2 dark:bg-green-900/30 dark:text-green-200"
+            >
+              Your enquiry has been sent. Thank you.
+            </p>
+            <ContactForm @submit="handleSubmit" />
           </div>
         </Transition>
       </div>

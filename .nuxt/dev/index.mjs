@@ -1,10 +1,12 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getMethod, getResponseStatusText } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
 import { escapeHtml } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/@vue/shared/dist/shared.cjs.js';
+import nodemailer from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/nodemailer/lib/nodemailer.js';
+import { z } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/zod/index.js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/ufo/dist/index.mjs';
 import { renderToString } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/vue/server-renderer/index.mjs';
@@ -12,8 +14,8 @@ import destr, { destr as destr$1 } from 'file:///Users/peterayenoto/netpoc/analy
 import { createHooks } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/hookable/dist/index.mjs';
 import { createFetch, Headers as Headers$1 } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/ofetch/dist/node.mjs';
 import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/unstorage/drivers/fs.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/nitropack/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/nitropack/node_modules/unstorage/drivers/fs.mjs';
 import { digest } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/ohash/dist/index.mjs';
 import { klona } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/klona/dist/index.mjs';
 import defu, { defuFn } from 'file:///Users/peterayenoto/netpoc/analytics/node_modules/defu/dist/defu.mjs';
@@ -647,7 +649,16 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {},
+  "email": {
+    "smtpHost": "mail.netpoc.com.ng",
+    "smtpPort": "465",
+    "smtpSecure": "true",
+    "smtpUser": "ayadmo@netpoc.com.ng",
+    "smtpPass": "gW14l{(+46TV}&JU",
+    "to": "ayadmo@netpoc.com.ng",
+    "from": "AYADMO Enquiries <ayadmo@netpoc.com.ng>"
+  }
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -2583,10 +2594,12 @@ async function getIslandContext(event) {
 	return ctx;
 }
 
+const _lazy_MyGVCn = () => Promise.resolve().then(function () { return enquiry_post$1; });
 const _lazy_B6EMuH = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '', handler: _8qEHT3, lazy: false, middleware: true, method: undefined },
+  { route: '/api/enquiry', handler: _lazy_MyGVCn, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_B6EMuH, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_B6EMuH, lazy: true, middleware: false, method: undefined }
@@ -2927,6 +2940,74 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const EnquirySchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().min(1),
+  message: z.string().min(1)
+});
+const enquiry_post = defineEventHandler(async (event) => {
+  if (getMethod(event) !== "POST") {
+    throw createError({ statusCode: 405, statusMessage: "Method Not Allowed" });
+  }
+  const body = await readBody(event);
+  const parsed = EnquirySchema.safeParse(body);
+  if (!parsed.success) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Invalid enquiry payload",
+      data: parsed.error.flatten()
+    });
+  }
+  const { name, email, phone, message } = parsed.data;
+  const config = useRuntimeConfig().email;
+  if (!(config == null ? void 0 : config.smtpHost) || !(config == null ? void 0 : config.smtpPort) || !(config == null ? void 0 : config.smtpUser) || !(config == null ? void 0 : config.smtpPass) || !(config == null ? void 0 : config.to) || !(config == null ? void 0 : config.from)) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Email configuration is incomplete on the server"
+    });
+  }
+  const transporter = nodemailer.createTransport({
+    host: config.smtpHost,
+    port: Number(config.smtpPort),
+    secure: String(config.smtpSecure).toLowerCase() === "true" || Number(config.smtpPort) === 465,
+    auth: {
+      user: config.smtpUser,
+      pass: config.smtpPass
+    }
+  });
+  const subject = `New AYADMO enquiry from ${name}`;
+  const textBody = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    "",
+    message,
+    "",
+    `Received at: ${(/* @__PURE__ */ new Date()).toISOString()}`
+  ].join("\n");
+  try {
+    await transporter.sendMail({
+      from: config.from,
+      to: config.to,
+      subject,
+      text: textBody
+    });
+  } catch (err) {
+    console.error("Failed to send enquiry email", err);
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Failed to send enquiry email"
+    });
+  }
+  return { ok: true };
+});
+
+const enquiry_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: enquiry_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

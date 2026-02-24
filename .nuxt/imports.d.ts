@@ -32,4 +32,5 @@ export { computedAsync, asyncComputed, computedEager, eagerComputed, computedInj
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useCountUp } from '../composables/useCountUp';
+export { useEnquiry, EnquiryPayload } from '../composables/useEnquiry';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

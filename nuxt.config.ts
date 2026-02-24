@@ -27,6 +27,17 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    email: {
+      smtpHost: process.env.NUXT_EMAIL_SMTP_HOST,
+      smtpPort: process.env.NUXT_EMAIL_SMTP_PORT,
+      smtpSecure: process.env.NUXT_EMAIL_SMTP_SECURE,
+      smtpUser: process.env.NUXT_EMAIL_SMTP_USER,
+      smtpPass: process.env.NUXT_EMAIL_SMTP_PASS,
+      to: process.env.NUXT_EMAIL_TO,
+      from: process.env.NUXT_EMAIL_FROM,
+    },
+  },
   tailwindcss: {
     configPath: '~/tailwind.config.js',
   },

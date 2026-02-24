@@ -69,6 +69,7 @@ const comparisonRows = [
 ]
 
 const billingMonthly = ref(true)
+const contactModalOpen = ref(false)
 
 const faqs = [
   {
@@ -90,6 +91,7 @@ const faqs = [
 <template>
   <div class="min-h-screen">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <ContactModal v-model="contactModalOpen" />
       <header class="text-center mb-12">
         <h1 class="text-4xl font-bold text-primary-dark dark:text-accent-teal">Pricing</h1>
         <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -175,12 +177,13 @@ const faqs = [
       </section>
 
       <div id="signup" class="mt-16 text-center">
-        <NuxtLink
-          to="#signup"
+        <button
+          type="button"
+          @click="contactModalOpen = true"
           class="inline-flex rounded-lg bg-primary-dark dark:bg-accent-teal px-8 py-4 font-semibold text-white transition hover:opacity-90"
         >
           Start Your Analysis
-        </NuxtLink>
+        </button>
       </div>
     </div>
   </div>

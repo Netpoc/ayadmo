@@ -54,4 +54,21 @@ npm run preview
 
 ## Environment
 
-No env vars required for the marketing site. For a future contact/signup API, add `NUXT_PUBLIC_API_BASE` or similar in `.env`.
+For the basic marketing site, no environment variables are required.
+
+### Enquiry email setup
+
+To enable the enquiry modal on the About page to send emails, configure these variables in a `.env` file:
+
+```bash
+NUXT_EMAIL_SMTP_HOST=mail.netpoc.com.ng
+NUXT_EMAIL_SMTP_PORT=465
+NUXT_EMAIL_SMTP_SECURE=true
+NUXT_EMAIL_SMTP_USER=ayadmo@netpoc.com.ng
+NUXT_EMAIL_SMTP_PASS=<mailbox password>
+
+NUXT_EMAIL_FROM="AYADMO Enquiries <ayadmo@netpoc.com.ng>"
+NUXT_EMAIL_TO=ayenotopeter@hotmail.com
+```
+
+The backend route `/api/enquiry` uses these values to send messages via SMTP.

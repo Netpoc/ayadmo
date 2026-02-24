@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const emit = defineEmits<{ submit: [payload: { name: string; email: string; message: string }] }>()
+const emit = defineEmits<{
+  submit: [payload: { name: string; email: string; phone: string; message: string }]
+}>()
 
 const name = ref('')
 const email = ref('')
+const phone = ref('')
 const message = ref('')
 const submitting = ref(false)
 
@@ -12,10 +15,12 @@ async function onSubmit() {
     emit('submit', {
       name: name.value,
       email: email.value,
+      phone: phone.value,
       message: message.value,
     })
     name.value = ''
     email.value = ''
+    phone.value = ''
     message.value = ''
   } finally {
     submitting.value = false
@@ -49,6 +54,19 @@ async function onSubmit() {
         required
         class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-gray-900 dark:text-gray-100 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal"
         placeholder="you@example.com"
+      />
+    </div>
+    <div>
+      <label for="contact-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        Phone
+      </label>
+      <input
+        id="contact-phone"
+        v-model="phone"
+        type="tel"
+        required
+        class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-gray-900 dark:text-gray-100 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal"
+        placeholder="+234…"
       />
     </div>
     <div>

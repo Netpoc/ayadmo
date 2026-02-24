@@ -11,6 +11,22 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
       cdnURL: string,
    },
 
+   email: {
+      smtpHost: string,
+
+      smtpPort: string,
+
+      smtpSecure: string,
+
+      smtpUser: string,
+
+      smtpPass: string,
+
+      to: string,
+
+      from: string,
+   },
+
    nitro: {
       envPrefix: string,
    },

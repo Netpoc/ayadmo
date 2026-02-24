@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { hasInjectionContext, getCurrentInstance, defineAsyncComponent, defineComponent, h, inject, computed, unref, shallowRef, provide, shallowReactive, ref, Suspense, Fragment, createApp, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, reactive, effectScope, mergeProps, getCurrentScope, toRef, withCtx, nextTick, isReadonly, useSSRContext, isRef, isShallow, isReactive, toRaw } from 'vue';
-import { p as parseURL, i as encodePath, k as decodePath, l as hasProtocol, m as isScriptProtocol, f as joinURL, w as withQuery, s as sanitizeStatusCode, n as getContext, $ as $fetch, o as createHooks, c as createError$1, q as defu, r as executeAsync } from '../nitro/nitro.mjs';
+import { p as parseURL, l as encodePath, m as decodePath, n as hasProtocol, o as isScriptProtocol, i as joinURL, w as withQuery, s as sanitizeStatusCode, q as getContext, $ as $fetch, t as createHooks, c as createError$1, v as defu, x as executeAsync } from '../nitro/nitro.mjs';
 import { b as baseURL } from '../routes/renderer.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
@@ -419,17 +419,17 @@ const _routes = [
   {
     name: "about",
     path: "/about",
-    component: () => import('./about-BrV16ur9.mjs')
+    component: () => import('./about-BGQOJyms.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-DRXA9IoD.mjs')
+    component: () => import('./index-CPRhifgL.mjs')
   },
   {
     name: "pricing",
     path: "/pricing",
-    component: () => import('./pricing-DWG4Nt-5.mjs')
+    component: () => import('./pricing-CEgKYio0.mjs')
   },
   {
     name: "features",
@@ -783,7 +783,7 @@ const plugins = [
   components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-DAxOxNz4.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-GtBJnI99.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({
