@@ -39,7 +39,7 @@ defineProps<{
       v-if="disabled"
       class="ml-2 text-xs text-gray-500 dark:text-gray-400"
     >
-      (Monthly only for now)
+      (Yearly only for now)
     </span>
   </div>
 </template>

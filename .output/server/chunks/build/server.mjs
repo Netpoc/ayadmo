@@ -419,7 +419,7 @@ const _routes = [
   {
     name: "about",
     path: "/about",
-    component: () => import('./about-BGQOJyms.mjs')
+    component: () => import('./about-BI8d_vC-.mjs')
   },
   {
     name: "index",
@@ -429,7 +429,7 @@ const _routes = [
   {
     name: "pricing",
     path: "/pricing",
-    component: () => import('./pricing-CEgKYio0.mjs')
+    component: () => import('./pricing-DPVAAk5c.mjs')
   },
   {
     name: "features",
