@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-dark: #0A2472;
+  --primary-light: #0CABA8;
+  --accent-teal: #0CABA8;
+  --accent-gold: #FFB347;
+  --neutral-white: #FFFFFF;
+  --neutral-light: #F5F7FA;
+  --neutral-dark: #333333;
+}
+
+.dark {
+  --neutral-white: #1a1a2e;
+  --neutral-light: #16213e;
+  --neutral-dark: #eaeaea;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-neutral-dark antialiased;
+}
+.dark body {
+  @apply bg-[#1a1a2e] text-gray-200;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+}
