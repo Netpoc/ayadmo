@@ -409,7 +409,7 @@ const _routes = [
   {
     name: "demo",
     path: "/demo",
-    component: () => import('./demo-DKWlcrpL.mjs')
+    component: () => import('./demo-BsZEBmbb.mjs')
   },
   {
     name: "docs",
@@ -424,7 +424,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-Cdju9xZg.mjs')
+    component: () => import('./index-DRXA9IoD.mjs')
   },
   {
     name: "pricing",

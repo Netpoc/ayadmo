@@ -10,7 +10,7 @@ useHead({
 })
 
 const sampleMetrics = [
-  { label: 'Total exports (YTD)', value: '$2.4M' },
+  { label: 'Total data (YTD)', value: '$2.4M' },
   { label: 'Growth YoY', value: '+8.2%' },
   { label: 'Top market', value: 'EU' },
   { label: 'Indicators linked', value: '12' },
@@ -23,10 +23,10 @@ const chartOption = computed(() => ({
     type: 'category',
     data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   },
-  yAxis: { type: 'value', name: 'Export value ($k)' },
+  yAxis: { type: 'value', name: 'Data value ($k)' },
   series: [
     {
-      name: 'Export value',
+      name: 'Data value',
       type: 'line',
       data: [120, 132, 145, 158, 168, 182, 195, 210, 228, 245, 260, 278],
       smooth: true,

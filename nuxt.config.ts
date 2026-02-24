@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt'],
   app: {
     head: {
-      title: 'AYADMO Analytics – Export Intelligence Platform',
+      title: 'AYADMO Analytics – Data Intelligence Platform',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

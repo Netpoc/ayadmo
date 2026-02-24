@@ -2033,7 +2033,7 @@ const __OjC5w7Jy4EUEX57iqZWiHiy9PeZ5liOy_C6Xj2w2kA = (function(nitro) {
 
 const rootDir = "/Users/peterayenoto/netpoc/analytics";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Transform your export data into strategic economic insights with real-time indicators and 5-year forecasts."}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"title":"AYADMO Analytics – Export Intelligence Platform"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Transform your export data into strategic economic insights with real-time indicators and 5-year forecasts."}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"title":"AYADMO Analytics – Data Intelligence Platform"};
 
 const appRootTag = "div";
 
@@ -2134,22 +2134,7 @@ const plugins = [
 _8TNsyCK8Qce8iEYGVWxPctYq9ZsLl9efMfu0LeYSBtM
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"19ecf-88NRGF0lH11KkGHX1viQwbsSP0Y\"",
-    "mtime": "2026-02-24T07:14:12.994Z",
-    "size": 106191,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"69a27-Cmdio4wCllCmJszEoOpVonn7zTg\"",
-    "mtime": "2026-02-24T07:14:12.994Z",
-    "size": 432679,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));

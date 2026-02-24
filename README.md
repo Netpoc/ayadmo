@@ -1,6 +1,6 @@
 # AYADMO Analytics
 
-Export intelligence platform. Transform export data into strategic economic insights with real-time indicators, correlation analysis, and 5-year forecasts.
+Data intelligence platform. Transform data into strategic economic insights with real-time indicators, correlation analysis, and 5-year forecasts.
 
 ## Stack
 

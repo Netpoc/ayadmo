@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'AYADMO Analytics – Export Intelligence Platform',
+  title: 'AYADMO Analytics – Data Intelligence Platform',
   meta: [
     {
       name: 'description',
       content:
-        'Transform your export data into strategic economic insights. Real-time global indicators, correlation analysis, and 5-year forecasts.',
+        'Transform your data into strategic economic insights. Real-time global indicators, correlation analysis, and 5-year forecasts.',
     },
   ],
 })
@@ -23,7 +23,7 @@ const features = [
   },
   {
     title: 'Correlation Analysis',
-    description: 'Identify key drivers and relationships between your exports and economic indicators.',
+    description: 'Identify key drivers and relationships between your data and economic indicators.',
     icon: '🔗',
   },
   {
@@ -47,7 +47,7 @@ const stats = [
   { value: '15+', label: 'Economic Indicators Tracked', animate: true },
   { value: '5-Year', label: 'Forecasts', animate: false },
   { value: 'Real-time', label: 'API Integration', animate: false },
-  { value: 'Multi-format', label: 'Export Support', animate: false },
+  { value: 'Multi-format', label: 'Data Support', animate: false },
 ]
 
 const testimonials = [
@@ -55,13 +55,13 @@ const testimonials = [
     quote:
       'AYADMO Analytics turned our scattered export data into a clear strategic asset. The correlation with FX and commodity prices is a game-changer.',
     author: 'Sarah Chen',
-    role: 'Head of Trade, Export Co.',
+    role: 'Head of Trade, Data Co.',
   },
   {
     quote:
       'We now run 5-year scenarios in minutes. The platform is intuitive and the support team is responsive.',
     author: 'James Okonkwo',
-    role: 'CFO, AgriExports Ltd',
+    role: 'CFO, AgriData Ltd',
   },
   {
     quote:
@@ -92,10 +92,10 @@ const testimonials = [
       />
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-          AYADMO Analytics: Export Intelligence Platform
+          AYADMO Analytics: Data Intelligence Platform
         </h1>
         <p class="mt-6 text-xl text-white/90 max-w-2xl mx-auto">
-          Transform your export data into strategic economic insights
+          Transform your data into strategic economic insights
         </p>
         <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
           <NuxtLink
